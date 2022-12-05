@@ -28,3 +28,17 @@ export async function signOutUser() {
 }
 
 /* Data functions */
+// upsert
+export async function upsertProfile(profile) {
+    const response = await client
+        .from('profiles')
+        .upsert(profile, { onConflict: 'user_id' })
+        .single();
+
+    return checkError(response);
+}
+
+// error handling
+function checkError(response) {
+    return response.error ? console.error(response.error) : response.data;
+}
