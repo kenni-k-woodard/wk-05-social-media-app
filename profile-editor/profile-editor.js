@@ -1,5 +1,5 @@
 // import
-import { getUser, uploadImage, upsertProfile } from '../fetch-utils.js';
+import { getProfile, getUser, uploadImage, upsertProfile } from '../fetch-utils.js';
 
 // get DOM elements
 const profileForm = document.querySelector('#profile-form');
@@ -17,7 +17,26 @@ let profile = null;
 const user = getUser();
 
 // events
-window.addEventListener('load', async () => {});
+window.addEventListener('load', async () => {
+    const response = await getProfile(user.id);
+    console.log(`response`, response);
+    error = response.error;
+    profile = response.data;
+
+    if (error) {
+        errorDisplay.textContent = error.message;
+    } else {
+        if (profile) {
+            userNameInput.value = profile.username;
+            if (profile.avatar_url) {
+                preview.src = profile.avatar_url;
+            }
+            if (profile.bio) {
+                bioInput.vale = profile.bio;
+            }
+        }
+    }
+});
 // event listener for submit button
 profileForm.addEventListener('submit', async (e) => {
     e.preventDefault();
