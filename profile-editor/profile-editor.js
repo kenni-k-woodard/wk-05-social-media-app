@@ -12,7 +12,9 @@ const user = getUser();
 // events
 const profileForm = document.querySelector('#profile-form');
 const errorDisplay = document.getElementById('error-display');
-const updateButton = document.querySelector('button');
+const updateButton = profileForm.querySelector('button');
+const preview = document.getElementById('preview');
+const avatarInput = profileForm.querySelector('[name=avatar]');
 
 // event listener for submit button
 profileForm.addEventListener('submit', async (e) => {
@@ -41,5 +43,14 @@ profileForm.addEventListener('submit', async (e) => {
         updateButton.textContent = 'Update Profile';
     } else {
         location.assign('/');
+    }
+});
+
+avatarInput.addEventListener('change', () => {
+    const file = avatarInput.files[0];
+    if (file) {
+        preview.src = URL.createObjectURL(file);
+    } else {
+        preview.src = '/assets/avatar.png';
     }
 });
