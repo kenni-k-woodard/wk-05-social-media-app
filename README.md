@@ -1,5 +1,11 @@
 # Week 05 Social Media App
 
+# SCREENSHOTS
+
+![](./assets/wk5bucket.png)
+![](./assets/wk5RLSupdate.png)
+![](./assets/wk5tableupdate.png)
+
 ## Description
 
 -   Users can create a profile
