@@ -87,6 +87,11 @@ export async function decrementStars(id) {
     return checkError(response);
 }
 
+export async function getProfiles() {
+    const response = await client.from('profiles').select('*');
+    return checkError(response);
+}
+
 // error handling
 function checkError(response) {
     return response.error ? console.error(response.error) : response.data;
