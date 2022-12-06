@@ -37,6 +37,7 @@ async function fetchAndDisplayProfile() {
     imgEl.src = profile.avatar_url;
 
     usernameHeaderEl.textContent = profile.username;
+    profileDetailEl.textContent = profile.bio;
 
     const profileStars = renderStars(profile);
 
