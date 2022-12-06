@@ -2,6 +2,13 @@
 import { getUser, uploadImage, upsertProfile } from '../fetch-utils.js';
 
 // get DOM elements
+const profileForm = document.querySelector('#profile-form');
+const errorDisplay = document.getElementById('error-display');
+const updateButton = profileForm.querySelector('button');
+const preview = document.getElementById('preview');
+const avatarInput = profileForm.querySelector('[name=avatar]');
+const bioInput = profileForm.querySelector('[name="bio"]');
+const userNameInput = profileForm.querySelector('[name=username]');
 
 // state
 let error = null;
@@ -10,12 +17,7 @@ let profile = null;
 const user = getUser();
 
 // events
-const profileForm = document.querySelector('#profile-form');
-const errorDisplay = document.getElementById('error-display');
-const updateButton = profileForm.querySelector('button');
-const preview = document.getElementById('preview');
-const avatarInput = profileForm.querySelector('[name=avatar]');
-
+window.addEventListener('load', async () => {});
 // event listener for submit button
 profileForm.addEventListener('submit', async (e) => {
     e.preventDefault();

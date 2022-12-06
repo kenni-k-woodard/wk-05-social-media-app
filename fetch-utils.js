@@ -55,6 +55,11 @@ export async function uploadImage(imagePath, imageFile) {
     return url;
 }
 
+export async function getProfile(user_id) {
+    const response = await client.from('profiles').select('*').match({ user_id }).maybeSingle();
+    return response;
+}
+
 // error handling
 function checkError(response) {
     return response.error ? console.error(response.error) : response.data;
