@@ -60,6 +60,33 @@ export async function getProfile(user_id) {
     return response;
 }
 
+export async function getProfileById(id) {
+    const response = await client.from('profiles').select('*').match({ id }).single();
+    return checkError(response);
+}
+
+export async function incrementStars(id) {
+    const profile = await getProfileById(id);
+
+    const response = await client
+        .from('profiles')
+        .update({ stars: profile.stars + 1 })
+        .match({ id });
+
+    return checkError(response);
+}
+
+export async function decrementStars(id) {
+    const profile = await getProfileById(id);
+
+    const response = await client
+        .from('profiles')
+        .update({ stars: profile.stars - 1 })
+        .match({ id });
+
+    return checkError(response);
+}
+
 // error handling
 function checkError(response) {
     return response.error ? console.error(response.error) : response.data;
