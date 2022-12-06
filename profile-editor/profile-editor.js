@@ -63,7 +63,7 @@ profileForm.addEventListener('submit', async (e) => {
         updateButton.disabled = false;
         updateButton.textContent = 'Update Profile';
     } else {
-        location.assign('/');
+        location.assign('../profile');
     }
 });
 
