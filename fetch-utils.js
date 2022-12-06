@@ -73,6 +73,8 @@ export async function incrementStars(id) {
         .update({ stars: profile.stars + 1 })
         .match({ id });
 
+    console.log(response);
+
     return checkError(response);
 }
 

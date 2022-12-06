@@ -21,6 +21,7 @@ async function fetchAndDisplayProfiles() {
     const profiles = await getProfiles();
 
     for (let profile of profiles) {
+        console.log(profile);
         const profileEl = renderProfile(profile);
         listEl.append(profileEl);
     }
