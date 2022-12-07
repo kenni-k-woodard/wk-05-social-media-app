@@ -1,5 +1,5 @@
 // import
-import { getProfile, getUser, uploadImage, upsertProfile } from '../fetch-utils.js';
+import { getProfile, getUser, signOutUser, uploadImage, upsertProfile } from '../fetch-utils.js';
 
 // get DOM elements
 const profileForm = document.querySelector('#profile-form');
@@ -9,6 +9,7 @@ const preview = document.getElementById('preview');
 const avatarInput = profileForm.querySelector('[name=avatar]');
 const bioInput = profileForm.querySelector('[name="bio"]');
 const userNameInput = profileForm.querySelector('[name=username]');
+const signOutLink = document.getElementById('sign-out-link');
 
 // state
 let error = null;
@@ -37,6 +38,12 @@ window.addEventListener('load', async () => {
         }
     }
 });
+
+// sign out event listener
+signOutLink.addEventListener('click', async () => {
+    await signOutUser();
+});
+
 // event listener for submit button
 profileForm.addEventListener('submit', async (e) => {
     e.preventDefault();
