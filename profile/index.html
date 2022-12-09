@@ -15,7 +15,7 @@
             defer
             src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@1.35.7/dist/umd/supabase.min.js"
         ></script>
-        <script type="module" src="app.js"></script>
+        <script type="module" src="profile.js"></script>
 
         <!-- fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -26,8 +26,8 @@
         />
 
         <!-- css -->
-        <link rel="stylesheet" href="/styles/reset.css" />
-        <link rel="stylesheet" href="/styles/global.css" />
+        <link rel="stylesheet" href="../styles/reset.css" />
+        <link rel="stylesheet" href="../styles/global.css" />
         <!-- add link for page specific css -->
     </head>
 
@@ -36,14 +36,16 @@
             <img class="logo" src="/assets/html_css_js.png" alt="logo" />
             <p class="title">Supabase Web App</p>
             <nav>
-                <a href="profile-editor">Edit Profile</a>
+                <a href="/">Home</a>
+                <a href="../profile-editor/index.html">Edit Profile</a>
                 <a id="sign-out-link" href="auth">Sign Out</a>
             </nav>
         </header>
 
         <main>
-            <h1>User Profiles</h1>
-            <ul class="profiles-container"></ul>
+            <img src="/assets/avatar.png" alt="avatar" id="avatar-img" class="avatar" />
+            <h2 class="username-header"></h2>
+            <div class="profile-detail"></div>
         </main>
     </body>
 </html>
